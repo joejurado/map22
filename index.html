@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin=""/>
+
+        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+        integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [38.16, -96.96],
+              zoom: 4
+          });
+
+          L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 4,
+               minZoom: 4
+            }).addTo(map);
+
+            var planeIcon = L.icon({
+                iconUrl: 'airplane.png', // url that links to the icon image file
+                iconSize:     [38, 38], // size of the icon image in pixels
+                iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+                popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+            });
+
+
+
+            var marker1 = L.marker([29.95,-90.07], {icon: planeIcon}).addTo(map);
+            var marker2 = L.marker([30.25,-97.75], {icon: planeIcon}).addTo(map);
+            var marker3 = L.marker([43.04,-87.90], {icon: planeIcon}).addTo(map);
+
+var pic1 = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Elaborate_ironwork_galleries_on_the_corner_of_Royal_and_St._Peter_streets_New_Orleans.jpg/1024px-Elaborate_ironwork_galleries_on_the_corner_of_Royal_and_St._Peter_streets_New_Orleans.jpg" alt="New Orleans" width="250">';
+var pic2 = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Austin_from_Congress_Bridge-daylight.JPG/1024px-Austin_from_Congress_Bridge-daylight.JPG" alt="Austin" width="250">';
+var pic3 = '<img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Milwaukee-Art-Museum.JPG" alt="Milwaukee" width="250">';
+
+marker1.bindPopup('<p style="color:darkviolet; font-weight:bold"> New Orleans December 2017 </p>' + pic1);
+marker2.bindPopup('<p style="color:darkviolet; font-weight:bold"> Austin, TX June 2018</p>' + pic2);
+marker3.bindPopup('<p style="color:darkviolet; font-weight:bold"> Milwaukee August 2016</p>' + pic3);
+
+        </script>
+   </body>
+</html>
